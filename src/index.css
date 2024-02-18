@@ -1,13 +1,112 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Quicksand";
+  color: #333;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+.navbar h1 {
+  color: #2050ee;
+}
+
+.BpmSettingComponent {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 10px 16px;
+  margin: 20px auto; 
+  border-bottom: 1px solid #fafafa;
+  max-width: 600px; 
+  width: 100%;
+}
+
+.BpmSettingComponent h2 {
+  font-size: 20px;
+  color: #2050ee;
+  margin-bottom: 8px;
+}
+
+.BpmSettingComponent button {
+  background: #2050ee;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.BpmSettingComponent:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+
+.BpmSettingComponent input {
+  flex: 1; /* This will make the input take up the remaining space */
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  margin-left: 8px; /* Add some spacing between the button and input */
+}
+
+.BpmSettingComponent button:nth-child(2) {
+  margin-left: auto;
+}
+.BpmSettingComponent button:not(:last-child) {
+  margin-right: 8px;
+}
+
+
+
+.updateComponent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 16px;
+  margin: 20px auto; 
+  border-bottom: 1px solid #fafafa;
+  max-width: 600px; 
+  width: 100%;
+}
+
+.updateComponent h2 {
+  font-size: 20px;
+  color: #2050ee;
+  margin-bottom: 8px;
+}
+
+.updateComponent:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.updateComponent form {
+  display: flex;
+  flex-direction: row; /* Change the flex direction to row */
+  align-items: center;
+  width: 80%;
+}
+
+.updateComponent input {
+  flex: 1;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.updateComponent button {
+  background: #2050ee;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 8px;
 }
