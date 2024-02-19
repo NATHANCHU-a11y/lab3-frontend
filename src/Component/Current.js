@@ -4,8 +4,7 @@ const Current = ({url}) => {
   const [bpmData, setBpmData] = useState({ bpm: '*' });
 
   const handleRefresh = async () => {
-    const url = 'http://10.20.0.20:8080/bpm'
-    const response = await fetch(url + '/bpm');
+    const response = await fetch(url);
     const data = await response.json();
     setBpmData({ bpm: data.bpm });
     // console.log("Success!")
