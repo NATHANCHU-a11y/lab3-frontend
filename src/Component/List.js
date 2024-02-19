@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-const CurrentList = () => {
+const CurrentList = ({url}) => {
   const [bpmData, setBpmData] = useState([]);
   const [deleteBpm, setDeleteBpm] = useState('');
 
   useEffect(() => {
     const fetchAllBPMs = async () => {
       try {
-        const url = 'http://10.20.0.20:8080/bpm/list';
-        const response = await fetch(url);
+        const response = await fetch(url + 'list');
         const data = await response.json();
         setBpmData(data.bpm_list);
       } catch (error) {
@@ -17,20 +16,20 @@ const CurrentList = () => {
     };
 
     fetchAllBPMs();
-  }, []);
+  }, [url]);
 
   const handleDelete = async (e) => {
     e.preventDefault();
 
     try {
-      await fetch('http://10.20.0.20:8080/bpm', {
+      await fetch(url + 'list', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ bpm: parseInt(deleteBpm, 10) })
       });
-      const updatedResponse = await fetch('http://10.20.0.20:8080/bpm/list');
+      const updatedResponse = await fetch(url + 'list');
       const updatedData = await updatedResponse.json();
       setBpmData(updatedData.bpm_list);
       setDeleteBpm(''); 

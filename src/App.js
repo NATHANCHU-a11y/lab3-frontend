@@ -7,15 +7,16 @@ import Max from './Component/Max';
 import Min from './Component/Min';
 import CurrentList from './Component/List';
 function App() {
+  const url = 'http://10.20.0.20:8080'
   return (
       <div className="App">
         <Navbar />
         <div className="content">
-            <Current />
-            <Update />
-            <Max />
-            <Min />
-            <CurrentList />
+            <Current url = {url}/>
+            <Update url = {url}/>
+            <Max url = {url}/>
+            <Min url = {url}/>
+            <CurrentList url = {url}/>
         </div>
       </div>
   );

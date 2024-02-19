@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-const Min = () => {
+const Min = ({url}) => {
   const [minData, setMinData] = useState({ min: '*' });
 
-  const url = 'http://10.20.0.20:8080/bpm/min';
   const handleRefresh = async () => {
     try {
       const response = await fetch(url);
@@ -22,14 +21,14 @@ const Min = () => {
     e.preventDefault();
 
     try {
-      await fetch('http://10.20.0.20:8080/bpm/min', {
+      await fetch(url + 'min', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ bpm: parseInt(minData, 10) })
       });
-      const updatedResponse = await fetch('http://10.20.0.20:8080/bpm/min');
+      const updatedResponse = await fetch(url + 'min');
       const updatedData = await updatedResponse.json();
       setMinData(updatedData.bpm);
   

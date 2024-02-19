@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-const Max = () => {
+const Max = ({url}) => {
   const [maxData, setMaxData] = useState({ max: '*' });
 
-  const url = 'http://10.20.0.20:8080/bpm/max';
-
   const handleRefresh = async () => {
-    const response = await fetch(url);
+    const response = await fetch(url + 'max');
     const data = await response.json();
     setMaxData({ max: data.bpm });
     // console.log("Max Success!")
@@ -15,14 +13,14 @@ const Max = () => {
   const handleDelete = async (e) => {
     e.preventDefault();
     try {
-      await fetch('http://10.20.0.20:8080/bpm/max', {
+      await fetch(url + 'max', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ bpm: parseInt(maxData, 10) })
       });
-      const updatedResponse = await fetch('http://10.20.0.20:8080/bpm/max');
+      const updatedResponse = await fetch(url + 'max');
       const updatedData = await updatedResponse.json();
       setMaxData(updatedData.bpm);
   

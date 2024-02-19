@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const Update = () => {
+const Update = ({url}) => {
   const [newBpmInput, setNewBpmInput] = useState('');
   const [updateStatus, setUpdateStatus] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = 'http://10.20.0.20:8080/bpm'
     const response = await fetch(url, {
         method: 'PUT',
         headers: {
