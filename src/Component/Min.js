@@ -5,7 +5,7 @@ const Min = ({url}) => {
 
   const handleRefresh = async () => {
     try {
-      const response = await fetch(url);
+      const response = await fetch(url + 'min');
       if (!response.ok) {
         throw new Error(`Failed to fetch: ${response.statusText}`);
       }
